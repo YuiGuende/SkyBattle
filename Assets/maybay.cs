@@ -15,6 +15,7 @@ public class maybay : MonoBehaviour
 
     void Start()
     {
+
         planeShape = GetComponent<PlaneShape>();
         if (planeShape == null)
         {
@@ -22,8 +23,16 @@ public class maybay : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        gridManager = FindObjectOfType<GridManager>();
+    }
+
     void Update()
     {
+
+         if (gridManager != null && gridManager.isGameStarted)
+        return; // Lock rotation during game
         // Nhấn R để xoay máy bay
         if (Input.GetKeyDown(KeyCode.R) && isDragging)
         {
@@ -33,6 +42,10 @@ public class maybay : MonoBehaviour
 
     void OnMouseDown()
     {
+
+         if (gridManager != null && gridManager.isGameStarted)
+        return; // Lock rotation during game
+        
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         offset = transform.position - new Vector3(mouseWorld.x, mouseWorld.y, 0);
         isDragging = true;
@@ -43,6 +56,7 @@ public class maybay : MonoBehaviour
 
     void OnMouseDrag()
     {
+        
         if (isDragging)
         {
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);

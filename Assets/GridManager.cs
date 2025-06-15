@@ -1,4 +1,4 @@
-﻿//using System.Collections.Generic;
+//using System.Collections.Generic;
 //using UnityEngine;
 
 //public class GridManager : MonoBehaviour
@@ -204,7 +204,9 @@
 //    }
 //}
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum HitType
 {
@@ -226,7 +228,16 @@ public class GridManager : MonoBehaviour
     [Header("Hit Colors")]
     [SerializeField] private Material missHitMaterial; // Màu xám cho miss
     [SerializeField] private Material bodyHitMaterial; // Màu cam cho body hit
-    [SerializeField] private Material headHitMaterial; // Màu đỏ cho head hit
+    [SerializeField] private Material headHitMaterial; // Màu đỏ cho head hit4
+
+
+    [Header("UI")]
+    public TextMeshProUGUI notification;//thong bao cua game
+
+    [Header("EFFECT")]
+    public GameObject missilePrefab;
+
+    public bool isGameStarted = false;//check game da bat dau hay chua
 
     private GameObject[,] gridCells;
     private GameObject[,] occupiedBy; // Theo dõi máy bay nào đang chiếm ô nào
@@ -384,6 +395,27 @@ public class GridManager : MonoBehaviour
     // Method chính để xử lý bắn
     public HitType ShootAt(int x, int y)
     {
+        if (!isGameStarted)
+        {
+            return HitType.Miss;
+        }
+        Vector3 targetworldPos = GetCell(x, y).transform.position;
+
+        // Instantiate shooting effect
+        if (missilePrefab != null)
+        {
+
+            Vector3 startPos = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 1.1f, 0));
+            startPos.z = 0f; // Make sure it's on the correct Z layer
+
+            GameObject missile = Instantiate(missilePrefab, startPos, Quaternion.identity);
+
+            missile.GetComponent<missile_animation>().targetPosition = targetworldPos;
+            // Destroy(effect, 2f); // Clean up after 2 seconds
+        }
+
+
+
         // Kiểm tra bounds
         if (x < 0 || x >= gridSizeX || y < 0 || y >= gridSizeY)
             return HitType.Miss;
@@ -391,6 +423,7 @@ public class GridManager : MonoBehaviour
         // Kiểm tra xem đã bắn chưa
         if (hasBeenShot[x, y])
         {
+            notification.text = $"Cell ({x}, {y}) đã được bắn rồi!";
             Debug.Log($"Cell ({x}, {y}) đã được bắn rồi!");
             return HitType.Miss;
         }
@@ -409,6 +442,7 @@ public class GridManager : MonoBehaviour
         if (occupiedHead[x, y] != null)
         {
             GameObject hitPlane = occupiedHead[x, y];
+            notification.text = $"HEAD HIT! Plane: {hitPlane.name} at ({x}, {y})";
             Debug.Log($"HEAD HIT! Plane: {hitPlane.name} at ({x}, {y})");
             return HitType.HeadHit;
         }
@@ -417,11 +451,13 @@ public class GridManager : MonoBehaviour
         if (occupiedBy[x, y] != null)
         {
             GameObject hitPlane = occupiedBy[x, y];
+            notification.text = $"BODY HIT! Plane: {hitPlane.name} at ({x}, {y})";
             Debug.Log($"BODY HIT! Plane: {hitPlane.name} at ({x}, {y})");
             return HitType.BodyHit;
         }
 
         // Miss
+        notification.text = $"MISS at ({x}, {y})";
         Debug.Log($"MISS at ({x}, {y})");
         return HitType.Miss;
     }
@@ -458,6 +494,15 @@ public class GridManager : MonoBehaviour
             return true;
         return hasBeenShot[x, y];
     }
+
+    //game start
+    public void StartGame()
+    {
+        isGameStarted = true;
+        Debug.Log("Game started!");
+    }
+
+
 
     // Method để reset game
     public void ResetGrid()
