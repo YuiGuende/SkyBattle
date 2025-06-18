@@ -7,7 +7,7 @@
 [Ll]ogs/
 UserSettings/
 MemoryCaptures/
-
+.vs/
 # IDE
 .vscode/
 *.csproj
