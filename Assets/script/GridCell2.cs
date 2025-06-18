@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
-public class GridCell : MonoBehaviour
+public class GridCell2 : MonoBehaviour
 {
     private int gridX;
     private int gridY;
-    private GridManager gridManager;
+    private GridManager2 gridManager;
 
     public GameObject missilePrefab;
 
-    public void Initialize(int x, int y, GridManager manager)
+    public void Initialize(int x, int y, GridManager2 manager)
     {
         gridX = x;
         gridY = y;
@@ -17,7 +17,6 @@ public class GridCell : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("trang thai game:"+gridManager.isGameStarted);
         if (gridManager == null || !gridManager.isGameStarted)
             return;
 

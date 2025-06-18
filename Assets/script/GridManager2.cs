@@ -4,14 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum HitType
-{
-    Miss,
-    BodyHit,
-    HeadHit
-}
 
-public class GridManager : MonoBehaviour
+public class GridManager2 : MonoBehaviour
 {
     [SerializeField] private int gridSizeX = 15;
     [SerializeField] private int gridSizeY = 15;
@@ -89,7 +83,7 @@ public class GridManager : MonoBehaviour
                     collider.size = Vector2.one * cellSpacing;
 
                     // Thêm GridCell component để handle click
-                    GridCell gridCellComponent = cell.AddComponent<GridCell>();
+                    GridCell2 gridCellComponent = cell.AddComponent<GridCell2>();
                     gridCellComponent.Initialize(x, y, this);
 
                     gridCells[x, y] = cell;
@@ -117,22 +111,12 @@ public class GridManager : MonoBehaviour
 
     public bool IsCellOccupied(int x, int y, GameObject excludePlane = null)
     {
-        if (x < 0 || x >= gridSizeX || y < 0 || y >= gridSizeY)
+        if (x < 0 || x >= gridSizeX || y < 0 || y >= gridSizeY || occupiedBy == null)
             return true;
 
         GameObject occupier = occupiedBy[x, y];
-
-        // Nếu là null → chưa bị chiếm
-        if (occupier == null) return false;
-
-        // Bỏ qua chính máy bay đang kiểm tra hoặc đã bị ẩn
-        if (occupier == excludePlane || !occupier.activeInHierarchy)
-            return false;
-
-        // Nếu đến đây nghĩa là có máy bay khác đang chiếm
-        return true;
+        return occupier != null && occupier != excludePlane;
     }
-
 
     public void SetPlaneOccupation(int centerX, int centerY, List<PlaneCell> shape, GameObject plane)
     {

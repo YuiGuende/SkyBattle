@@ -25,7 +25,6 @@ public class maybay : MonoBehaviour
 
     void Awake()
     {
-        gridManager = FindObjectOfType<GridManager>();
     }
 
     void Update()
@@ -42,9 +41,13 @@ public class maybay : MonoBehaviour
 
     void OnMouseDown()
     {
+        Debug.Log("maybaycs đang nhận mouse down");
 
-         if (gridManager != null && gridManager.isGameStarted)
-        return; // Lock rotation during game
+        if (gridManager != null && gridManager.isGameStarted) { 
+            return; // Lock rotation during game
+    }
+            
+       
         
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         offset = transform.position - new Vector3(mouseWorld.x, mouseWorld.y, 0);
@@ -84,6 +87,7 @@ public class maybay : MonoBehaviour
         {
             // Đặt máy bay tại vị trí hợp lệ
             PlaceAt(centerX, centerY);
+
         }
         else
         {
@@ -120,16 +124,16 @@ public class maybay : MonoBehaviour
 
     void PlaceAt(int centerX, int centerY)
     {
-        // Đặt máy bay tại tâm của ô center
         GameObject centerCell = gridManager.GetCell(centerX, centerY);
         if (centerCell != null)
         {
-            transform.position = centerCell.transform.position;
+            // Đặt máy bay lên cell, nhưng đẩy lên trục Z một tí để không bị grid đè
+            transform.position = centerCell.transform.position + new Vector3(0, 0, -0.1f);
 
-            // Đánh dấu các ô bị chiếm
             gridManager.SetPlaneOccupation(centerX, centerY, planeShape.GetRotatedShape(), this.gameObject);
         }
     }
+
 
     void CheckPlacementValidity()
     {
