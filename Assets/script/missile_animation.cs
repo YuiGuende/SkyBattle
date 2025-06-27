@@ -1,10 +1,10 @@
 using UnityEngine;
-
+using Fusion;
 public class missile_animation : MonoBehaviour
 {
     public Vector3 targetPosition;
     public float speed = 10f;
-    public GameObject explosionPrefab;
+    //public GameObject explosionPrefab;
 
     private Vector3 direction;
 
@@ -25,9 +25,9 @@ public class missile_animation : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
-            if (explosionPrefab != null)
-            targetPosition.z = -1f;
-                Instantiate(explosionPrefab, targetPosition, Quaternion.identity);
+            //if (explosionPrefab != null)
+            //targetPosition.z = -1f;
+            //    Instantiate(explosionPrefab, targetPosition, Quaternion.identity);
 
             Destroy(gameObject);
         }
