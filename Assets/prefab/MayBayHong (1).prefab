@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9220355244793269652}
   - component: {fileID: 502875938885702688}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Head_0_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4274448424950037619}
   - component: {fileID: 7253310616869449694}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Head_0_0 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 744104747234940991}
   - component: {fileID: 5180791898264193750}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2976252673194853781}
   - component: {fileID: 2122861984268633013}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8064081546562007308}
   - component: {fileID: 8869562042359113607}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6660387805143433810}
   - component: {fileID: 86001611164108316}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2755104103487575784}
   - component: {fileID: 6887852974527821586}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8669515292178235167}
   - component: {fileID: 1241736119009979271}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3703599651213061110}
   - component: {fileID: 2946754099766439681}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 3729621515432523789}
   - component: {fileID: 5475236152915715963}
   - component: {fileID: 194039969921535000}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MayBayHong (1)
   m_TagString: Plane
   m_Icon: {fileID: 0}
@@ -967,7 +967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8735493474487488369}
   - component: {fileID: 7576027111256945034}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

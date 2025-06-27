@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b13f900b401c444890f61af47106ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotMachineManager: {fileID: 0}
 --- !u!212 &187821299
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ Transform:
   m_GameObject: {fileID: 187821297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.08, y: 2.54, z: 0}
+  m_LocalPosition: {x: -6.38, y: 4.2, z: 0}
   m_LocalScale: {x: 0.39896, y: 0.39896, z: 0.39896}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -440,6 +441,7 @@ MonoBehaviour:
   gridPosP1: {x: -10, y: -5, z: 0}
   gridPosP2: {x: 10, y: -5, z: 0}
   networkGameManagerPrefab: {fileID: 0}
+  slotMachinePrefab: {fileID: 0}
 --- !u!4 &212695233
 Transform:
   m_ObjectHideFlags: 0
@@ -1718,6 +1720,7 @@ MonoBehaviour:
   - {fileID: 6393884237119510630, guid: 88d99f841682a7b4a980dc43652e7ac1, type: 3}
   - {fileID: 7415585180461811336, guid: f243008a09d1ea14c8e3ced00c9c99f4, type: 3}
   - {fileID: 8691552844882196446, guid: f06b3e702946e8449a4f238afb4d160a, type: 3}
+  - {fileID: 7275334541937170627, guid: 2bacf704b645e5941a2104ade70135c6, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -1742,6 +1745,7 @@ MonoBehaviour:
   gridPosP1: {x: -22, y: 4.3, z: 0}
   gridPosP2: {x: -21, y: 4.3, z: 0}
   networkGameManagerPrefab: {fileID: 6393884237119510630, guid: 88d99f841682a7b4a980dc43652e7ac1, type: 3}
+  slotMachinePrefab: {fileID: 7275334541937170627, guid: 2bacf704b645e5941a2104ade70135c6, type: 3}
 --- !u!4 &1802582716
 Transform:
   m_ObjectHideFlags: 0

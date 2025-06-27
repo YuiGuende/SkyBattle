@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4523908069732466077}
   - component: {fileID: 5587316623136116597}
   - component: {fileID: 6245753079249076680}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MayBayCampuchia (3)
   m_TagString: Plane
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5489835065243822187}
   - component: {fileID: 5947702590922270459}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5643644227885774259}
   - component: {fileID: 4743547138984960586}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Head_0_0 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8078189200626842380}
   - component: {fileID: 6431120067988736564}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4775475848223994678}
   - component: {fileID: 7329923872583442405}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4224025999657535498}
   - component: {fileID: 4232098241126228462}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6372136127862509075}
   - component: {fileID: 1130250223651434402}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 600790241975290488}
   - component: {fileID: 429058629296521110}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6408354988775423020}
   - component: {fileID: 7724621274553204627}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -879,7 +879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3922125652768474745}
   - component: {fileID: 5824048068500441545}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cell_0_0 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -27,8 +27,8 @@ public class maybay : NetworkBehaviour
     void Start()
     {
         // Ẩn máy bay nếu không sở hữu
-        if (!isOwned)
-            gameObject.SetActive(false);
+        //if (!isOwned)
+        //    gameObject.SetActive(false);
         //if (!isOwned)
         //{
         //    var sr = GetComponentInChildren<SpriteRenderer>();
