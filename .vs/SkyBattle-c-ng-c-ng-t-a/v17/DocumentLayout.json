@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5A7080C8-F66D-8F59-84EB-FB0F3D989885}|Assembly-CSharp.csproj|D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\assets\\cs\\slotmachinemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A7080C8-F66D-8F59-84EB-FB0F3D989885}|Assembly-CSharp.csproj|solutionrelative:assets\\cs\\slotmachinemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A7080C8-F66D-8F59-84EB-FB0F3D989885}|Assembly-CSharp.csproj|D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\assets\\skilliconhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A7080C8-F66D-8F59-84EB-FB0F3D989885}|Assembly-CSharp.csproj|solutionrelative:assets\\skilliconhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A7080C8-F66D-8F59-84EB-FB0F3D989885}|Assembly-CSharp.csproj|d:\\dowload\\skybattle-c-ng-c-ng-t-a\\skybattle-c-ng-c-ng-t-a\\assets\\cs\\planeskill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A7080C8-F66D-8F59-84EB-FB0F3D989885}|Assembly-CSharp.csproj|solutionrelative:assets\\cs\\planeskill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\maybay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\maybay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A7080C8-F66D-8F59-84EB-FB0F3D989885}|Assembly-CSharp.csproj|D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\assets\\maybaycamscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A7080C8-F66D-8F59-84EB-FB0F3D989885}|Assembly-CSharp.csproj|solutionrelative:assets\\maybaycamscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\PlaneShape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\PlaneShape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\SlotMachineManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\SlotMachineManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\missile_animation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\missile_animation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\start_game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\start_game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SlotMachineManager.cs",
+              "DocumentMoniker": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\cs\\SlotMachineManager.cs",
+              "RelativeDocumentMoniker": "Assets\\cs\\SlotMachineManager.cs",
+              "ToolTip": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\cs\\SlotMachineManager.cs",
+              "RelativeToolTip": "Assets\\cs\\SlotMachineManager.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAAAGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:49:52.593Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlaneSkill.cs",
+              "DocumentMoniker": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\cs\\PlaneSkill.cs",
+              "RelativeDocumentMoniker": "Assets\\cs\\PlaneSkill.cs",
+              "ToolTip": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\cs\\PlaneSkill.cs",
+              "RelativeToolTip": "Assets\\cs\\PlaneSkill.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:36:21.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SkillIconHandler.cs",
+              "DocumentMoniker": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\SkillIconHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\SkillIconHandler.cs",
+              "ToolTip": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\SkillIconHandler.cs",
+              "RelativeToolTip": "Assets\\SkillIconHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:21:26.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MaybayCamScript.cs",
+              "DocumentMoniker": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\MaybayCamScript.cs",
+              "RelativeDocumentMoniker": "Assets\\MaybayCamScript.cs",
+              "ToolTip": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\MaybayCamScript.cs",
+              "RelativeToolTip": "Assets\\MaybayCamScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T07:39:25.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PlaneShape.cs",
+              "DocumentMoniker": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\PlaneShape.cs",
+              "RelativeDocumentMoniker": "Assets\\PlaneShape.cs",
+              "ToolTip": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\PlaneShape.cs",
+              "RelativeToolTip": "Assets\\PlaneShape.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T07:46:18.87Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SlotMachineManager.cs",
+              "DocumentMoniker": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\SlotMachineManager.cs",
+              "RelativeDocumentMoniker": "Assets\\SlotMachineManager.cs",
+              "ToolTip": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\SlotMachineManager.cs",
+              "RelativeToolTip": "Assets\\SlotMachineManager.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAQwFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T06:06:13.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "maybay.cs",
+              "DocumentMoniker": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\maybay.cs",
+              "RelativeDocumentMoniker": "Assets\\maybay.cs",
+              "ToolTip": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\maybay.cs",
+              "RelativeToolTip": "Assets\\maybay.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T13:56:11.534Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "missile_animation.cs",
+              "DocumentMoniker": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\missile_animation.cs",
+              "RelativeDocumentMoniker": "Assets\\missile_animation.cs",
+              "ToolTip": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\missile_animation.cs",
+              "RelativeToolTip": "Assets\\missile_animation.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T13:55:43.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "start_game.cs",
+              "DocumentMoniker": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\start_game.cs",
+              "RelativeDocumentMoniker": "Assets\\start_game.cs",
+              "ToolTip": "D:\\Dowload\\SkyBattle-c-ng-c-ng-t-a\\SkyBattle-c-ng-c-ng-t-a\\Assets\\start_game.cs",
+              "RelativeToolTip": "Assets\\start_game.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T13:50:04.056Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
