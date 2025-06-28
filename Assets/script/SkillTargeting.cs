@@ -19,34 +19,36 @@ public class SkillTargeting : MonoBehaviour
         areaRadius = radius;
         isTargeting = true;
 
-        Debug.Log("🎯 Hãy chọn ô trung tâm để thả bom!");
+        Debug.Log("🎯 Hãy chọn ô trung tâm để thả skill: " + skill.skillType);
     }
 
-    // Giả sử GridCell có sự kiện OnMouseDown
+    // Hàm này sẽ được gọi từ GridCell khi người chơi chọn ô
     public void OnCellSelected(int x, int y)
     {
         if (!isTargeting || activeSkill == null) return;
 
-        Debug.Log($"💥 Bom sẽ rơi vào vùng quanh ({x}, {y})");
+        Debug.Log($"📌 Kích hoạt skill {activeSkill.skillType} tại ({x},{y})");
 
-        for (int dx = -areaRadius; dx <= areaRadius; dx++)
+        NetworkPlayer localPlayer = TurnManager.Instance?.localPlayer;
+        if (localPlayer == null)
         {
-            for (int dy = -areaRadius; dy <= areaRadius; dy++)
-            {
-                int tx = x + dx;
-                int ty = y + dy;
-
-                // Gây ảnh hưởng tại ô tx, ty (nếu trong lưới)
-                GridManager grid = FindObjectOfType<GridManager>();
-                if (grid != null && tx >= 0 && ty >= 0 && tx < 15 && ty < 15)
-                {
-                    // Thử bắn luôn
-                    grid.ShootAt(tx, ty);
-                }
-            }
+            Debug.LogError("❌ Không tìm thấy localPlayer!");
+            return;
         }
 
-        // Reset targeting
+        switch (activeSkill.skillType)
+        {
+            case PlaneSkillType.AreaBomb:
+                // Gửi tọa độ về server để xử lý
+                localPlayer.CmdRequestBOMBDUYMOM(x, y);
+                break;
+
+                // Thêm các skill khác tại đây
+                // case PlaneSkillType.JammingField: ...
+                // case PlaneSkillType.TrapDeploy: ...
+        }
+
+        // Reset trạng thái chọn
         isTargeting = false;
         activeSkill.currentCooldown = activeSkill.cooldownTurns;
         activeSkill.isOnCooldown = true;

@@ -7,7 +7,8 @@ public class NetworkPlayer : NetworkBehaviour
     [SyncVar] public bool isReady = false;
     [SyncVar] public bool isMyTurn = false;
     private bool isShooting = false;
-
+    public int shootRemaining=1;
+    public PlaneSkill selectedSkill;
 
     [SyncVar(hook = nameof(OnGridAssigned))]
     public NetworkIdentity myGridIdentity;
@@ -78,10 +79,164 @@ public class NetworkPlayer : NetworkBehaviour
     }
 
     [Command]
+    public void CmdUseSkillOnCell(PlaneSkillType skillType, int x, int y)
+    {
+        Debug.Log($"[Server] Dùng skill {skillType} tại ({x},{y})");
+
+        switch (skillType)
+        {
+            case PlaneSkillType.FighterBoost:
+                CmdRequestFighterBoost(x, y);   
+                break;
+            case PlaneSkillType.RadarScan:
+                CmdRequestBOMBDUYMOM(x, y);    
+                break;
+            case PlaneSkillType.AreaBomb:
+                
+                break;
+            default:
+                Debug.LogWarning("Skill chưa xử lý: " + skillType);
+                break;
+        }
+    }
+    [Command]
+    public void CmdRequestBOMBDUYMOM(int x, int y)
+    {
+        if (isShooting)
+        {
+            Debug.Log("⛔ Đang xử lý bắn, chờ tí...");
+            return;
+        }
+
+        if (!NetworkGameManager.Instance.gameStarted)
+        {
+            Debug.Log("⛔ Game chưa bắt đầu.");
+            return;
+        }
+
+        if (!isMyTurn)
+        {
+            Debug.Log("⛔ Không phải lượt của bạn.");
+            return;
+        }
+
+        GridManager enemy = enemyGridIdentity != null ? enemyGridIdentity.GetComponent<GridManager>() : null;
+        if (enemy == null)
+        {
+            Debug.LogError("❌ CmdRequestBOMBDUYMOM: enemyGridIdentity null hoặc không có GridManager!");
+            return;
+        }
+
+        isShooting = true;
+
+        HitType result = enemy.ShootAt(x, y);
+        RpcShowResult(x, y, result);
+
+        if (result == HitType.Shooted)
+        {
+            Debug.Log("⛔ Ô đã bắn trước đó.");
+            isShooting = false;
+            return;
+        }
+
+        if (enemy.AreAllPlanesDestroyed())
+        {
+            Debug.Log("🎯 TẤT CẢ MÁY BAY ĐÃ BỊ TIÊU DIỆT!");
+            RpcGameOver(true);
+            isShooting = false;
+            return;
+        }
+
+        shootRemaining--; // Dù đúng hay sai vẫn trừ lượt
+
+        if (shootRemaining <= 0)
+        {
+            StartCoroutine(EndTurnAfterDelay());
+        }
+        else
+        {
+            isShooting = false;
+        }
+    }
+
+
+
+    [Command]
+    public void CmdRequestFighterBoost(int x, int y)
+    {
+        if (isShooting)
+        {
+            Debug.Log("⛔ Đang xử lý bắn, chờ tí...");
+            return;
+        }
+
+        if (!NetworkGameManager.Instance.gameStarted)
+        {
+            Debug.Log("game is not started");
+            return;
+        }
+
+        if (!isMyTurn)
+        {
+            Debug.Log("Không phải lượt của bạn");
+            return;
+        }
+
+        GridManager enemy = enemyGridIdentity != null ? enemyGridIdentity.GetComponent<GridManager>() : null;
+        if (enemy == null)
+        {
+            Debug.LogError("❌ CmdRequestShoot: enemyGridIdentity is null or has no GridManager!");
+            return;
+        }
+
+        isShooting = true; // ✅ Khóa lại
+
+        HitType result = enemy.ShootAt(x, y);
+        RpcShowResult(x, y, result);
+
+        if (result == HitType.Shooted)
+        {
+            Debug.Log("⛔ Ô đã bắn → không đổi lượt, không reset khóa vì chưa bắn hợp lệ.");
+            isShooting = false;
+            return;
+        }
+
+        if (enemy.AreAllPlanesDestroyed())
+        {
+            Debug.Log("🎯 TẤT CẢ MÁY BAY ĐÃ BỊ TIÊU DIỆT!");
+            RpcGameOver(true);
+            isShooting = false;
+            return;
+        }
+
+        if (shootRemaining<=0)
+        {
+            // ❌ Miss → kết thúc lượt
+            StartCoroutine(EndTurnAfterDelay());
+        }
+        else
+        {
+            // ✅ Hit → cho phép bắn tiếp
+            isShooting = false;
+            shootRemaining--;
+        }
+
+    }
+
+
+    [Command]
     public void CmdSetReady()
     {
         isReady = true;
         NetworkGameManager.Instance.TryStartGame();
+    }
+
+    [Command]
+    public void CmdSetSkill(PlaneSkill skillLinked)
+    {
+        Debug.Log("skilllimnk" + skillLinked.name);
+        selectedSkill = skillLinked;
+
     }
 
     [Command]
@@ -132,7 +287,7 @@ public class NetworkPlayer : NetworkBehaviour
             return;
         }
 
-        if (result == HitType.Miss)
+        if (result == HitType.Miss )
         {
             // ❌ Miss → kết thúc lượt
             StartCoroutine(EndTurnAfterDelay());
@@ -141,8 +296,11 @@ public class NetworkPlayer : NetworkBehaviour
         {
             // ✅ Hit → cho phép bắn tiếp
             isShooting = false;
+     
         }
+        
     }
+
 
 
     [ClientRpc]
@@ -217,7 +375,7 @@ public class NetworkPlayer : NetworkBehaviour
         // Cập nhật UI cả 2 bên
         manaNotification.UpdateVisual();
         enemyManaNotification.UpdateVisual(); // nếu muốn xem mana của đối phương
-
+        
         NetworkGameManager.Instance.NextTurn();
     }
 
@@ -260,8 +418,13 @@ public class NetworkPlayer : NetworkBehaviour
     [ClientRpc]
     public void RpcSetupTurn(bool isMyTurn)
     {
-        Debug.Log($"[NetworkPlayer] RpcSetupTurn, isMyTurn: {isMyTurn}");
+        if (isMyTurn && isLocalPlayer)
+        {
+            shootRemaining = 1;
+        }
 
+        Debug.Log($"[NetworkPlayer] RpcSetupTurn, isMyTurn: {isMyTurn}");
+        shootRemaining = 1;
         if (!isLocalPlayer) return;
 
         foreach (var g in FindObjectsOfType<GridManager>())

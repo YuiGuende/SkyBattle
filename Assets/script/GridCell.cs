@@ -142,7 +142,22 @@ public class GridCell : MonoBehaviour
         Debug.Log($"local.isLocalPlayer = {local.isLocalPlayer}, hasAuthority = {local.isOwned}");
 
         Debug.Log("chuẩn bị bắn");
-        local.CmdRequestShoot(gridX, gridY);
+
+        NetworkPlayer player = TurnManager.Instance.localPlayer;
+        //Debug.Log("skill duoc chon de cbi kich hoat: " + player.selectedSkill.name);
+        Debug.Log("player: " + player.name);
+        if (player != null && player.selectedSkill != null)
+        {
+           
+            Debug.Log($"💥 Thi triển kỹ năng {player.selectedSkill.skillType} tại ô ({gridX},{gridY})");
+            player.CmdUseSkillOnCell(player.selectedSkill.skillType, gridX, gridY);
+            player.selectedSkill = null; // reset kỹ năng sau khi dùng
+        }
+        else
+        {
+            local.CmdRequestShoot(gridX, gridY);
+        }
+            
         Debug.Log("Bắn xong");
     }
 

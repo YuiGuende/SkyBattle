@@ -14,8 +14,39 @@ public class PlaneSkill : NetworkBehaviour
 {
     public PlaneSkillType skillType;
     public Sprite skillIcon;
-    public int energyCost = 1;
-    public int cooldownTurns = 3;
+    public int energyCost ;
+    public int cooldownTurns ;
+    private void Start()
+    {
+        switch (skillType)
+        {
+            case PlaneSkillType.FighterBoost:
+                Debug.Log("🛩️ Kích hoạt: Tiêm kích +1 lượt bắn!");
+                energyCost = 1;
+                cooldownTurns = 2;
+                break;
+            case PlaneSkillType.JammingField:
+                Debug.Log("📡 Kích hoạt: Nhiễu sóng vùng 6x6!");
+                energyCost = 1;
+                cooldownTurns = 2;
+                break;
+            case PlaneSkillType.AreaBomb:
+                Debug.Log("💣 Kích hoạt: Bom vùng 5x5!");
+                energyCost = 1;
+                cooldownTurns = 2;
+                break;
+            case PlaneSkillType.RadarScan:
+                Debug.Log("📍 Kích hoạt: Rada quét vùng 2x2!");
+                energyCost = 1;
+                cooldownTurns = 2;
+                break;
+            case PlaneSkillType.TrapDeploy:
+                Debug.Log("🪤 Kích hoạt: Đặt bẫy!");
+                energyCost = 1;
+                cooldownTurns = 2;
+                break;
+        }
+    }
 
     [SyncVar] public int currentCooldown = 0;
     [SyncVar] public bool isOnCooldown = false;
@@ -34,6 +65,7 @@ public class PlaneSkill : NetworkBehaviour
         if (localPlayer == null || !localPlayer.isLocalPlayer)
         {
             Debug.Log("❌ Không tìm thấy localPlayer.");
+
             return;
         }
 
@@ -51,11 +83,11 @@ public class PlaneSkill : NetworkBehaviour
 
         // Trừ mana
         localPlayer.CmdConsumeMana(energyCost);
-
+        localPlayer.CmdSetSkill(this);
         switch (skillType)
         {
             case PlaneSkillType.FighterBoost:
-                Debug.Log("🛩️ Kích hoạt: Tiêm kích +2 lượt bắn!");
+                Debug.Log("🛩️ Kích hoạt: Tiêm kích +1 lượt bắn!");
                 break;
             case PlaneSkillType.JammingField:
                 Debug.Log("📡 Kích hoạt: Nhiễu sóng vùng 6x6!");

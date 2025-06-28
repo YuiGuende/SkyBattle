@@ -1719,10 +1719,12 @@ MonoBehaviour:
   - {fileID: 665148464980068146, guid: bcaade5133e8e8c4d8d0df9dedb6544b, type: 3}
   - {fileID: 7333767167089032071, guid: 09b3632da558ba647998947591a34711, type: 3}
   - {fileID: 6393884237119510630, guid: 88d99f841682a7b4a980dc43652e7ac1, type: 3}
-  - {fileID: 7415585180461811336, guid: f243008a09d1ea14c8e3ced00c9c99f4, type: 3}
+  - {fileID: 7756716526378678708, guid: 97139e31d95967e4a8e6451b5ddf4e33, type: 3}
   - {fileID: 8691552844882196446, guid: f06b3e702946e8449a4f238afb4d160a, type: 3}
   - {fileID: 7275334541937170627, guid: 2bacf704b645e5941a2104ade70135c6, type: 3}
   - {fileID: 720601426535374569, guid: b87f23e7d534b954ca3ce72988fd1bab, type: 3}
+  - {fileID: 5499437962449694298, guid: a09e438808cbba441b7c0a44d55e5e90, type: 3}
+  - {fileID: 6124959064344527100, guid: 6a69b82c77c9eb44fa5159ec21ef8c7c, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -1742,8 +1744,9 @@ MonoBehaviour:
   mayBayPrefabs:
   - {fileID: 665148464980068146, guid: bcaade5133e8e8c4d8d0df9dedb6544b, type: 3}
   - {fileID: 7333767167089032071, guid: 09b3632da558ba647998947591a34711, type: 3}
-  - {fileID: 7415585180461811336, guid: f243008a09d1ea14c8e3ced00c9c99f4, type: 3}
+  - {fileID: 7756716526378678708, guid: 97139e31d95967e4a8e6451b5ddf4e33, type: 3}
   - {fileID: 8691552844882196446, guid: f06b3e702946e8449a4f238afb4d160a, type: 3}
+  - {fileID: 5499437962449694298, guid: a09e438808cbba441b7c0a44d55e5e90, type: 3}
   gridPosP1: {x: -22, y: 4.3, z: 0}
   gridPosP2: {x: -21, y: 4.3, z: 0}
   networkGameManagerPrefab: {fileID: 6393884237119510630, guid: 88d99f841682a7b4a980dc43652e7ac1, type: 3}

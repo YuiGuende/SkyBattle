@@ -706,12 +706,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f061ce8bb20088b488bf4cda61a242c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 1
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  skillType: 0
   skillIcon: {fileID: -489288472147288824, guid: 1812c82804cbb054eb0fa1a85e938349, type: 3}
-  cooldownTurns: 1
   energyCost: 1
-  isOnCooldown: 0
+  cooldownTurns: 1
   currentCooldown: 0
+  isOnCooldown: 0
+  isSilenced: 0
 --- !u!1 &8774827429325951888
 GameObject:
   m_ObjectHideFlags: 0

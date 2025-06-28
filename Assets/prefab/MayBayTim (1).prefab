@@ -1057,9 +1057,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f061ce8bb20088b488bf4cda61a242c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 4
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  skillType: 2
   skillIcon: {fileID: 581927207526996229, guid: a70cbd7eaf6291841ac9b76a20f21c53, type: 3}
-  cooldownTurns: 1
   energyCost: 1
-  isOnCooldown: 0
+  cooldownTurns: 1
   currentCooldown: 0
+  isOnCooldown: 0
+  isSilenced: 0
