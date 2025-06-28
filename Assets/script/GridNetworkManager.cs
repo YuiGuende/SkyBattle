@@ -10,6 +10,8 @@ public class GridNetworkManager : NetworkManager
     public GameObject networkGameManagerPrefab;
     public GameObject slotMachinePrefab;
 
+    public GameObject manaUIPrefab;
+
     void Start()
     {
         Debug.Log("✅ GridNetworkManager started");
@@ -39,7 +41,19 @@ public class GridNetworkManager : NetworkManager
         NetworkPlayer player = conn.identity.GetComponent<NetworkPlayer>();
         player.myGridIdentity = gridObj.GetComponent<NetworkIdentity>();
 
+        //spawn mana 
+        Vector3 manaPos = gridPos + new Vector3(5f, 3f, 0);
+        GameObject manaObj = Instantiate(manaUIPrefab, manaPos, Quaternion.identity);
+        NetworkServer.Spawn(manaObj, conn);
+        player.manaNotification = manaObj.GetComponent<ManaNotificationUI>();
+
+        player.TargetSetManaUI(conn, manaObj.GetComponent<NetworkIdentity>());
+        // Gán mana UI cho player server-side
+
+
+
         // 🔁 Gán enemyGrid khi đủ 2 người
+        // 🔁 Gán enemyGrid và enemyManaNotification khi đủ 2 người
         if (numPlayers == 2)
         {
             var allPlayers = FindObjectsOfType<NetworkPlayer>();
@@ -47,10 +61,25 @@ public class GridNetworkManager : NetworkManager
             {
                 NetworkPlayer p1 = allPlayers[0];
                 NetworkPlayer p2 = allPlayers[1];
+
                 p1.enemyGridIdentity = p2.myGridIdentity;
                 p2.enemyGridIdentity = p1.myGridIdentity;
+
+                p1.enemyManaNotification = p2.manaNotification;
+                p2.enemyManaNotification = p1.manaNotification;
+
+                if (p1.manaNotification != null)
+                {
+                    p1.TargetMoveManaUI(p1.connectionToClient, new Vector3(17f, 0f, 0f));
+                }
+                if (p2.manaNotification != null)
+                {
+                    p2.TargetMoveManaUI(p2.connectionToClient, new Vector3(17f, 10f, 0f));
+
+                }
             }
         }
+
 
         // 🎰 Spawn SlotMachine
         Vector3 slotPos = gridPos + new Vector3(0, 3f, 0);

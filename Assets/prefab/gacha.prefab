@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1842325845599645040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 209626343786465999}
+  m_Layer: 0
+  m_Name: skill panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &209626343786465999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842325845599645040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.62, y: 6.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4803137760567890325}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960693704848165943
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +191,7 @@ Transform:
   - {fileID: 2083135042740363140}
   - {fileID: 1450694737279423250}
   - {fileID: 226908784663903779}
+  - {fileID: 209626343786465999}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &338177336485916523
@@ -177,7 +209,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  skillDisplayPanel: {fileID: 0}
+  skillDisplayPanel: {fileID: 209626343786465999}
   allPlanes:
   - {fileID: 665148464980068146, guid: bcaade5133e8e8c4d8d0df9dedb6544b, type: 3}
   - {fileID: 7333767167089032071, guid: 09b3632da558ba647998947591a34711, type: 3}

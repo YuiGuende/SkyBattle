@@ -13,6 +13,9 @@ public class NetworkPlayer : NetworkBehaviour
     [SyncVar]
     public NetworkIdentity enemyGridIdentity;
 
+    public ManaNotificationUI manaNotification;
+    public ManaNotificationUI enemyManaNotification;
+
     public GridManager myGrid;
     public GridManager enemyGrid;
 
@@ -105,16 +108,17 @@ public class NetworkPlayer : NetworkBehaviour
 
         HitType result = enemy.ShootAt(x, y);
         RpcShowResult(x, y, result);
-        if (enemy.AreAllPlanesDestroyed())
-        {
-            Debug.Log("🎯 TẤT CẢ MÁY BAY ĐÃ BỊ TIÊU DIỆT!");
+        StartCoroutine(EndTurnAfterDelay());
+        // if (enemy.AreAllPlanesDestroyed())
+        // {
+        //     Debug.Log("🎯 TẤT CẢ MÁY BAY ĐÃ BỊ TIÊU DIỆT!");
 
-            // Thông báo client thắng và dừng game
-            RpcGameOver(true);
-        }
-        else
-            StartCoroutine(EndTurnAfterDelay());
-        
+        //     // Thông báo client thắng và dừng game
+        //     RpcGameOver(true);
+        // }
+        // else
+        //     StartCoroutine(EndTurnAfterDelay());
+
     }
     [ClientRpc]
     void RpcGameOver(bool youWin)
@@ -147,12 +151,68 @@ public class NetworkPlayer : NetworkBehaviour
 
 
 
+    // [TargetRpc]
+    // public void TargetAssignMana(NetworkConnection target, NetworkIdentity manaUIIdentity)
+    // {
+    //     manaNotification = manaUIIdentity.GetComponent<ManaNotificationUI>();
+    // }
+
+    [TargetRpc]
+    public void TargetSetManaUI(NetworkConnection target, NetworkIdentity manaObj)
+    {
+        Debug.Log("✅ TargetSetManaUI called");
+        manaNotification = manaObj.GetComponent<ManaNotificationUI>();
+    }
+
+
 
     IEnumerator EndTurnAfterDelay()
     {
+        Debug.Log("end turn");
         yield return new WaitForSeconds(3f);
+
+
+        foreach (var plane in FindObjectsOfType<maybay>())
+        {
+            if (plane.gridManager == myGrid) // chỉ máy bay của mình
+            {
+                PlaneSkill skill = plane.GetComponent<PlaneSkill>();
+                if (skill != null)
+                {
+                    Debug.Log("skill cooldown done");
+                    skill.ReduceCooldown();
+                }
+            }
+        }
+
+        if (manaNotification != null && manaNotification.mana < manaNotification.maxMana)
+        {
+            manaNotification.mana += 1;
+            manaNotification.UpdateVisual();
+        }
+        if (enemyManaNotification != null && enemyManaNotification.mana < enemyManaNotification.maxMana)
+        {
+            enemyManaNotification.mana += 1;
+            enemyManaNotification.UpdateVisual();
+        }
+
+
+        // Cập nhật UI cả 2 bên
+        manaNotification.UpdateVisual();
+        enemyManaNotification.UpdateVisual(); // nếu muốn xem mana của đối phương
+
         NetworkGameManager.Instance.NextTurn();
     }
+
+
+    // Trong NetworkPlayer.cs
+    [TargetRpc]
+    public void TargetMoveManaUI(NetworkConnection target, Vector3 offset)
+    {
+        if (manaNotification != null)
+            manaNotification.transform.position += offset;
+    }
+
 
     [ClientRpc]
     void RpcShowResult(int x, int y, HitType result)
@@ -173,7 +233,7 @@ public class NetworkPlayer : NetworkBehaviour
                 return;
             }
         }
-        enemyGrid.ApplyHitVisual(x, y, result); 
+        enemyGrid.ApplyHitVisual(x, y, result);
         Vector3 target = enemyGrid.GetCell(x, y).transform.position;
         Vector3 start = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 1.1f, 0));
         start.z = 0;

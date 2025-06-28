@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: 4733850506986421364}
   - component: {fileID: 2678026939660267609}
   - component: {fileID: 4943963526568276377}
+  - component: {fileID: 1780000273520708725}
   m_Layer: 0
   m_Name: maybaydo (1)
   m_TagString: Plane
@@ -869,6 +870,24 @@ MonoBehaviour:
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
+--- !u!114 &1780000273520708725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333767167089032071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f061ce8bb20088b488bf4cda61a242c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 2
+  skillIcon: {fileID: 642146194206879159, guid: 52a329cb8650c9c45abfaa776fdf395e, type: 3}
+  cooldownTurns: 0
+  energyCost: 0
+  isOnCooldown: 0
+  currentCooldown: 0
 --- !u!1 &8863244823014257790
 GameObject:
   m_ObjectHideFlags: 0
