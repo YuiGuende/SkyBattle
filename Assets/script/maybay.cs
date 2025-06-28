@@ -27,8 +27,8 @@ public class maybay : NetworkBehaviour
     void Start()
     {
         // Ẩn máy bay nếu không sở hữu
-        //if (!isOwned)
-        //    gameObject.SetActive(false);
+        if (!isOwned)
+            gameObject.SetActive(false);
         //if (!isOwned)
         //{
         //    var sr = GetComponentInChildren<SpriteRenderer>();
@@ -163,16 +163,16 @@ public class maybay : NetworkBehaviour
 
         List<PlaneCell> shape = planeShape.GetRotatedShape();
 
-        foreach (PlaneCell cell in shape)
-        {
-            int gridX = centerX + cell.x;
-            int gridY = centerY + cell.y;
+        //foreach (PlaneCell cell in shape)
+        //{
+        //    int gridX = centerX + cell.x;
+        //    int gridY = centerY + cell.y;
 
-            if (gridX >= 0 && gridX < 15 && gridY >= 0 && gridY < 15)
-            {
-                gridManager.HighlightCell(gridX, gridY, highlight);
-            }
-        }
+        //    if (gridX >= 0 && gridX < 15 && gridY >= 0 && gridY < 15)
+        //    {
+        //        gridManager.HighlightCell(gridX, gridY, highlight);
+        //    }
+        //}
     }
 
     [Command]

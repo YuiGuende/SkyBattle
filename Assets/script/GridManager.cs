@@ -7,7 +7,8 @@ public enum HitType
 {
     Miss,
     BodyHit,
-    HeadHit
+    HeadHit,
+    Shooted
 }
 
 public class GridManager : NetworkBehaviour
@@ -193,7 +194,7 @@ public class GridManager : NetworkBehaviour
         if (hasBeenShot[x, y])
         {
             notification.text = $"🔁 Cell ({x},{y}) đã bị bắn!";
-            return HitType.Miss;
+            return HitType.Shooted;
         }
 
         hasBeenShot[x, y] = true;

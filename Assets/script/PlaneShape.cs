@@ -68,13 +68,13 @@ public class PlaneShape : MonoBehaviour
 
                 cachedShape.Add(new PlaneCell(x, y, isHead));
 
-                Debug.Log($"Detected {(isHead ? "HEAD" : "BODY")} at ({x}, {y}) from child: {child.name}");
+                //Debug.Log($"Detected {(isHead ? "HEAD" : "BODY")} at ({x}, {y}) from child: {child.name}");
             }
         }
 
         shapeCached = true;
         SetCellsVisible(false);
-        Debug.Log($"Shape detected with {cachedShape.Count} cells");
+        //Debug.Log($"Shape detected with {cachedShape.Count} cells");
     }
 
     public List<PlaneCell> GetRotatedShape()

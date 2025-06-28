@@ -797,6 +797,7 @@ GameObject:
   - component: {fileID: 3729621515432523789}
   - component: {fileID: 5475236152915715963}
   - component: {fileID: 194039969921535000}
+  - component: {fileID: 7962091215442974497}
   m_Layer: 0
   m_Name: MayBayHong (1)
   m_TagString: Plane
@@ -957,6 +958,24 @@ MonoBehaviour:
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
+--- !u!114 &7962091215442974497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415585180461811336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f061ce8bb20088b488bf4cda61a242c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 5
+  skillIcon: {fileID: -3394920065024653024, guid: c597e7bbbaafbc04fb6a493409d64dba, type: 3}
+  cooldownTurns: 1
+  energyCost: 1
+  isOnCooldown: 0
+  currentCooldown: 0
 --- !u!1 &7546262496724692973
 GameObject:
   m_ObjectHideFlags: 0

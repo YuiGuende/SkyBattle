@@ -6,6 +6,8 @@ public class NetworkPlayer : NetworkBehaviour
 {
     [SyncVar] public bool isReady = false;
     [SyncVar] public bool isMyTurn = false;
+    private bool isShooting = false;
+
 
     [SyncVar(hook = nameof(OnGridAssigned))]
     public NetworkIdentity myGridIdentity;
@@ -15,6 +17,9 @@ public class NetworkPlayer : NetworkBehaviour
 
     public GridManager myGrid;
     public GridManager enemyGrid;
+
+    public ManaNotificationUI manaNotification;
+    public ManaNotificationUI enemyManaNotification;
 
     public override void OnStartLocalPlayer()
     {
@@ -82,7 +87,11 @@ public class NetworkPlayer : NetworkBehaviour
     [Command]
     public void CmdRequestShoot(int x, int y)
     {
-        Debug.Log(" CmdRequestShoot: called!");
+        if (isShooting)
+        {
+            Debug.Log("⛔ Đang xử lý bắn, chờ tí...");
+            return;
+        }
 
         if (!NetworkGameManager.Instance.gameStarted)
         {
@@ -103,19 +112,39 @@ public class NetworkPlayer : NetworkBehaviour
             return;
         }
 
+        isShooting = true; // ✅ Khóa lại
+
         HitType result = enemy.ShootAt(x, y);
         RpcShowResult(x, y, result);
+
+        if (result == HitType.Shooted)
+        {
+            Debug.Log("⛔ Ô đã bắn → không đổi lượt, không reset khóa vì chưa bắn hợp lệ.");
+            isShooting = false;
+            return;
+        }
+
         if (enemy.AreAllPlanesDestroyed())
         {
             Debug.Log("🎯 TẤT CẢ MÁY BAY ĐÃ BỊ TIÊU DIỆT!");
-
-            // Thông báo client thắng và dừng game
             RpcGameOver(true);
+            isShooting = false;
+            return;
+        }
+
+        if (result == HitType.Miss)
+        {
+            // ❌ Miss → kết thúc lượt
+            StartCoroutine(EndTurnAfterDelay());
         }
         else
-            StartCoroutine(EndTurnAfterDelay());
-        
+        {
+            // ✅ Hit → cho phép bắn tiếp
+            isShooting = false;
+        }
     }
+
+
     [ClientRpc]
     void RpcGameOver(bool youWin)
     {
@@ -147,17 +176,63 @@ public class NetworkPlayer : NetworkBehaviour
 
 
 
-
+    [TargetRpc]
+    public void TargetSetManaUI(NetworkConnection target, NetworkIdentity manaObj)
+    {
+        Debug.Log("✅ TargetSetManaUI called");
+        manaNotification = manaObj.GetComponent<ManaNotificationUI>();
+    }
     IEnumerator EndTurnAfterDelay()
     {
+        Debug.Log("end turn");
         yield return new WaitForSeconds(3f);
+        isShooting=false; 
+
+
+        foreach (var plane in FindObjectsOfType<maybay>())
+        {
+            if (plane.gridManager == myGrid) // chỉ máy bay của mình
+            {
+                PlaneSkill skill = plane.GetComponent<PlaneSkill>();
+                if (skill != null)
+                {
+                    Debug.Log("skill cooldown done");
+                    skill.ReduceCooldown();
+                }
+            }
+        }
+
+        if (manaNotification != null && manaNotification.mana < manaNotification.maxMana)
+        {
+            manaNotification.mana += 1;
+            manaNotification.UpdateVisual();
+        }
+        if (enemyManaNotification != null && enemyManaNotification.mana < enemyManaNotification.maxMana)
+        {
+            enemyManaNotification.mana += 1;
+            enemyManaNotification.UpdateVisual();
+        }
+
+
+        // Cập nhật UI cả 2 bên
+        manaNotification.UpdateVisual();
+        enemyManaNotification.UpdateVisual(); // nếu muốn xem mana của đối phương
+
         NetworkGameManager.Instance.NextTurn();
+    }
+
+    [TargetRpc]
+    public void TargetMoveManaUI(NetworkConnection target, Vector3 offset)
+    {
+        if (manaNotification != null)
+            manaNotification.transform.position += offset;
     }
 
     [ClientRpc]
     void RpcShowResult(int x, int y, HitType result)
     {
         Debug.Log($"[{netId}] Shot result at ({x},{y}) = {result}");
+        if (result == HitType.Shooted) return;
 
         //if (enemyGrid == null)
         //{
@@ -216,6 +291,16 @@ public class NetworkPlayer : NetworkBehaviour
             }
         }
 
+    }
+    [Command]
+    public void CmdConsumeMana(int amount)
+    {
+        if (manaNotification == null) return;
+
+        manaNotification.mana -= amount;
+        if (manaNotification.mana < 0) manaNotification.mana = 0;
+
+        manaNotification.UpdateVisual();
     }
 
     GridManager FindEnemyGrid()
